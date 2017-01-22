@@ -11,6 +11,7 @@ def download_file (filename, url):
 
 
 def search_body (keyword):
+    print("https://metasmoke.erwaysoftware.com/search.json?body={}&body_is_regex=1".format(keyword))
     return get("https://metasmoke.erwaysoftware.com/search.json?body={}&body_is_regex=1".format(keyword))
 
 
@@ -76,7 +77,7 @@ def audit_blacklist (filename, search_type):
             reasons.append("Last TP was > 1 year ago")
 
         # Print summary
-        print(website, "({} tps, {} fps, {} naa, {}% accuracy, last tp {})".format(tps, fps, naa, accuracy, last_tp_text))
+        print(item, "({} tps, {} fps, {} naa, {}% accuracy, last tp {})".format(tps, fps, naa, accuracy, last_tp_text))
         if len(reasons) > 0:
             print("Removal reason(s): {}\n".format(", ".join(reasons)))
 
@@ -84,8 +85,8 @@ def main ():
     download_file("blacklisted_websites.txt", "https://github.com/Charcoal-SE/SmokeDetector/raw/master/blacklisted_websites.txt")
     audit_blacklist("blacklisted_websites.txt", "body")
 
-    download_file("bad_keywords.txt", "https://github.com/Charcoal-SE/SmokeDetector/raw/master/bad_keywords.txt")
-    audit_blacklist("bad_keywords.txt", "body")
+    #download_file("bad_keywords.txt", "https://github.com/Charcoal-SE/SmokeDetector/raw/master/bad_keywords.txt")
+    #audit_blacklist("bad_keywords.txt", "body")
 
 if __name__ == "__main__":
     main()
