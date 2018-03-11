@@ -22,7 +22,7 @@ def search_username (keyword):
 def audit_blacklist (filename, search_type):
     """Audit the blacklist specified for usefulness and validity
 
-    :param file_name: File name of the blacklist
+    :param filename: File name of the blacklist
     :param search_type: Field of posts to be searched (body or username)
     """
     with open(filename, "r") as f:
